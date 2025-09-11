@@ -1,0 +1,9 @@
+<form method="post" action="{% url 'subscribe' %}" class="form-inline justify-content-center mb-4">
+    {% csrf_token %}
+    <div class="input-group">
+        <input type="email" name="email" class="form-control p-4" placeholder="Your Email" style="height: 60px;" required>
+        <div class="input-group-append">
+            <button class="btn btn-primary font-weight-bold px-4" type="submit">Sign Up</button>
+        </div>
+    </div>
+</form>

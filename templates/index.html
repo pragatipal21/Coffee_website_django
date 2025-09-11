@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KOPPEE - Coffee Shop HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="static/img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/static/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- static/libraries Stylesheet -->
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">KOPPEE</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    
+  
+
+
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'aboutus'%}" class="nav-item nav-link">About</a>
+                    <a href="{% url 'service'%}"class="nav-item nav-link">Service</a>
+                    <a href="{% url 'menu'%}" class="nav-item nav-link">Menu</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="{% url 'reservation'%}" class="dropdown-item">Reservation</a>
+                            <a href="{% url 'testimonial'%}" class="dropdown-item">Testimonial</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'contact'%}"class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+            <a href="{% url 'coffeeData'%}" class="nav-item nav-link">Display_Coffee_Data</a>
+        </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div id="blog-carousel" class="carousel slide overlay-bottom" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="static/img/carousel-1.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-primary font-weight-medium m-0">We Have Been Serving</h2>
+                        <h1 class="display-1 text-white m-0">COFFEE</h1>
+                        <h2 class="text-white m-0">* SINCE 1950 *</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="static/img/carousel-2.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-primary font-weight-medium m-0">We Have Been Serving</h2>
+                        <h1 class="display-1 text-white m-0">COFFEE</h1>
+                        <h2 class="text-white m-0">* SINCE 1950 *</h2>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h4>
+                <h1 class="display-4">Serving Since 1950</h1>
+            </div>
+            <div class="row">
+                {% for a in learnData %}
+                <div class="col-lg-4 py-0 py-lg-5">
+                    <h1 class="mb-3">{{ a.learn_heading }}</h1>
+                    <h5 class="mb-3">{{ a.learn_title }}</h5>
+                    <p>{{ a.learn_desc}}</p>
+                    <a href="{{ a.learn_read_link }}" class="btn btn-secondary font-weight-bold py-2 px-4 mt-2">Learn More</a>
+                </div>
+                {% if forloop.last == False %}
+                <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                    <div class="position-relative h-30">
+                        <img class="position-absolute w-80 h-98" src="https://i.pinimg.com/originals/15/df/ae/15dfaef97eb6bcce8461e160cc11eda8.png" style="object-fit: cover;">
+                    </div>
+                </div>
+                {% endif %}
+                <!--<div class="col-lg-4 py-0 py-lg-5">
+                    <h1 class="mb-3">Our Vision</h1>
+                    <p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est dolor</p>
+                    <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Lorem ipsum dolor sit amet</h5>
+                    <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Lorem ipsum dolor sit amet</h5>
+                    <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Lorem ipsum dolor sit amet</h5>
+                    <a href="" class="btn btn-primary font-weight-bold py-2 px-4 mt-2">Learn More</a>
+                </div>-->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Service Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our Services</h4>
+                <h1 class="display-4">Fresh & Organic Beans</h1>
+            </div>
+            <div class="row d-flex flex-row flex-wrap"> <!-- Add flex properties -->
+                {% for our in ourserviceData %}
+                <div class="col-lg-4 col-md-6 mb-4"> <!-- Adjust column size -->
+                    <div class="card text-center p-3 border-0">
+                        <img class="img-fluid mb-3" src="/media/{{ our.our_img }}" alt="{{ our.our_title }}">
+                        <h4>
+                            <a href="{{ our.our_read_link}}">Click Here</a>
+                            
+                        </h4>
+                        <h3>{{ our.our_title }}</h3>
+                        <p>{{ our.our_desc }}</p>
+                    </div>
+                </div> 
+                {% endfor %}
+            </div>
+        </div> 
+    </div>
+    
+    <!-- Service End -->
+
+
+    <!-- Offer Start -->
+    <div class="offer container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom">
+        <div class="container py-5">
+            <h1 class="display-3 text-primary mt-3">50% OFF</h1>
+            <h1 class="text-white mb-3">Sunday Special Offer</h1>
+            <h4 class="text-white font-weight-normal mb-4 pb-3">Only for Sunday from 1st sep to 30th sep 2025</h4>
+            <form method="post" action="{% url 'subscribe' %}" class="form-inline justify-content-center mb-4">
+    {% csrf_token %}
+    <div class="input-group">
+        <input type="email" name="email" class="form-control p-4" placeholder="Your Email" style="height: 60px;" required>
+        <div class="input-group-append">
+            <button class="btn btn-primary font-weight-bold px-4" type="submit">Sign Up</button>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+    <!-- Offer End -->
+
+
+    <!-- Menu Start -->
+        
+    
+    <div class="container-fluid pt-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Menu & Pricing</h4>
+            <h1 class="display-4">Our Coffee Menu</h1>
+        </div>
+
+        <div class="row">
+            {% for item in menuitemData %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}" style="height:250px; object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="text-muted mb-1">₹ {{ item.price }}</p>
+
+                        <!-- Ratings -->
+                        <!--<p>
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= item.rating|floatformat:0 %}
+                                    ⭐
+                                {% else %}
+                                    ☆
+                                {% endif %}
+                            {% endfor %}
+                            <small>({{ item.rating }})</small>
+                        </p>-->
+
+                        <!-- Description -->
+                        {% if item.description %}
+                            <p class="card-text small">{{ item.description }}</p>
+                        {% endif %}
+
+                        <!-- Quantity + Add to Cart -->
+                        <div class="mt-auto">
+                            <div class="d-flex align-items-center mb-2">
+                                <input type="number" value="1" min="1" class="form-control w-25 me-2">
+                                <button class="btn btn-primary btn-sm w-100">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center w-100">No menu items available right now.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    <!-- Menu End -->
+
+
+    <!-- Reservation Start -->
+    <div class="container-fluid my-5">
+        <div class="container">
+            <div class="reservation position-relative overlay-top overlay-bottom">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 my-5 my-lg-0">
+                        {% for off in offerData %}
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h1 class="display-3 text-primary">{{off.title}}</h1>
+                                <h2 class="text-white">{{off.subtitle}}</h2>
+                            </div>
+                            <h4 class="text-white">{{off.description}}</h4>
+                            
+                            
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
+                            <h1 class="text-white mb-4 mt-5">Book Your Table</h1>
+                            
+<form action="" method="post" class="mb-5">
+    {% csrf_token %}
+    
+    <!-- Name Field -->
+    <div class="form-group">
+        <input type="text" name="name" class="form-control bg-transparent border-primary p-4" 
+               placeholder="Name" required="required" />
+    </div>
+    
+    <!-- Email Field -->
+    <div class="form-group">
+        <input type="email" name="email" class="form-control bg-transparent border-primary p-4" 
+               placeholder="Email" required="required" />
+    </div>
+    
+    <!-- Date Field -->
+    <div class="form-group">
+        <input type="date" name="date" class="form-control bg-transparent border-primary p-4" 
+               required="required" />
+    </div>
+    
+    <!-- Time Field -->
+    <div class="form-group">
+        <input type="time" name="time" class="form-control bg-transparent border-primary p-4" 
+               required="required" />
+    </div>
+    
+    <!-- Number of Persons -->
+    <div class="form-group">
+        <select name="person" class="custom-select bg-transparent border-primary px-4" 
+                style="height: 49px;" required="required">
+            <option value="" disabled selected>Number of Persons</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 Persons</option>
+            <option value="3">3 Persons</option>
+            <option value="4">4 Persons</option>
+        </select>
+    </div>
+    
+    <!-- Submit Button -->
+    <div>
+        <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Book Now</button>
+    </div>
+</form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Reservation End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h4>
+                <h1 class="display-4">Our Clients Say</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+            {% for n in serviceData %}
+
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="/media/{{n.service_img}}" alt="">
+                        <div class="ml-3">
+                            <h4>{{n.service_title}}</h4>
+                            <a href="{{ n.service_read_link }}" class="btn btn-secondary font-weight-bold py-1 px-2 mt-2">Instagram</a>
+                        </div>
+                    </div>
+                    <p class="m-0">{{n.service_desc}}</p>
+                </div>
+            {% endfor %}
+                <!--<div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="static/img/testimonial-2.jpg" alt="">
+                        <div class="ml-3">
+                            <h4>Client Name</h4>
+                            <i>Profession</i>
+                        </div>
+                    </div>
+                    <p class="m-0">Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="static/img/testimonial-3.jpg" alt="">
+                        <div class="ml-3">
+                            <h4>Client Name</h4>
+                            <i>Profession</i>
+                        </div>
+                    </div>
+                    <p class="m-0">Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid" src="static/img/testimonial-4.jpg" alt="">
+                        <div class="ml-3">
+                            <h4>Client Name</h4>
+                            <i>Profession</i>
+                        </div>
+                    </div>
+                    <p class="m-0">Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum sanct clita</p>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    
+
+
+    <!-- Footer Start -->
+    {% include "partials/footer.html" %}
+    <!--<div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                <p class="m-0"><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Follow Us</h4>
+                <p>Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Open Hours</h4>
+                <div>
+                    <h6 class="text-white text-uppercase">Monday - Friday</h6>
+                    <p>8.00 AM - 8.00 PM</p>
+                    <h6 class="text-white text-uppercase">Saturday - Sunday</h6>
+                    <p>2.00 PM - 8.00 PM</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Newsletter</h4>
+                <p>Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
+                {% include 'partials/subscribe_form.html' %}
+
+                
+  <!--<form method="POST" action="{% url 'subscribe' %}">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Sign Up</button>
+</form>-->
+
+
+                <!--<div class="w-100">
+
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
+                        </div>
+                    </div>
+                </div>-->
+            
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript static/libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/waypoints/waypoints.min.js"></script>
+    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="static/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>
