@@ -222,7 +222,13 @@
                         <div class="mt-auto">
                             <div class="d-flex align-items-center mb-2">
                                 <input type="number" value="1" min="1" class="form-control w-25 me-2">
-                                <button class="btn btn-primary btn-sm w-100">Add to Cart</button>
+                                {% if item.swiggy_link %}
+                                    <a href="{{ item.swiggy_link }}" target="_blank">
+                                        <button class="btn btn-primary btn-sm w-100">Order NOW</button>
+                                    </a>
+                                    {% else %}
+                                    <p>Not available on Swiggy</p>
+                                    {% endif %}
                             </div>
                         </div>
                     </div>

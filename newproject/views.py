@@ -185,14 +185,20 @@ from django.shortcuts import render, redirect
 from service.forms import TestimonialForm
 from service.models import Testimonial
 
-def testimonial(request):
+
+
+def reservation(request):
     if request.method == "POST":
         form = TestimonialForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("testimonial")
+            return redirect('testimonial')  # after saving, redirect to testimonial page
     else:
         form = TestimonialForm()
 
-    testimonials = Testimonial.objects.all().order_by("-created_at")
-    return render(request, "testimonial.html", {"form": form, "testimonials": testimonials})
+    return render(request, 'reservation.html', {'form': form})
+
+def testimonial(request):
+    testimonials = Testimonial.objects.all().order_by('-created_at')
+    return render(request, 'testimonial.html', {'testimonials': testimonials})
+

@@ -61,7 +61,7 @@ admin.site.register(Offer,OfferAdmin)
 
 from service.models import MenuItem
 class MenuItemAdmin(admin.ModelAdmin):
-    list_display=('name','price','description','image','rating')
+    list_display=('name','price','description','image','rating','swiggy_link')
 admin.site.register(MenuItem,MenuItemAdmin)
 
 

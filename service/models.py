@@ -75,16 +75,10 @@ class MenuItem(models.Model):
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="service/")
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=0)  # Example: 4.5 stars
+    swiggy_link = models.URLField(blank=True, null=True)
 
-class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    coffee_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
 
-class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    items = models.ManyToManyField(Cart)
-    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+
 
 
 

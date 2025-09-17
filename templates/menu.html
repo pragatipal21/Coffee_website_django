@@ -13,7 +13,9 @@
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/static/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -59,7 +61,8 @@
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
-        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5"
+            style="min-height: 400px">
             <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Menu</h1>
             <div class="d-inline-flex mb-lg-5">
                 <p class="m-0 text-white"><a class="text-white" href="">Home</a></p>
@@ -72,9 +75,9 @@
 
 
     <!-- Menu Start -->
-   
-            
-            <!--<div class="row">
+
+
+    <!--<div class="row">
                 <div class="col-lg-6">
                     <h1 class="mb-5">Hot Coffee</h1>
                     <div class="row align-items-center mb-5">
@@ -142,26 +145,27 @@
                     </div>
                 </div>
             </div>-->
-        
-    
+
+
     <div class="container-fluid pt-5">
-    <div class="container">
-        <div class="section-title">
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Menu & Pricing</h4>
-            <h1 class="display-4">Our Coffee Menu</h1>
-        </div>
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Menu & Pricing</h4>
+                <h1 class="display-4">Our Coffee Menu</h1>
+            </div>
 
-        <div class="row">
-            {% for item in menuitemData %}
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}" style="height:250px; object-fit:cover;">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">{{ item.name }}</h5>
-                        <p class="text-muted mb-1">₹ {{ item.price }}</p>
+            <div class="row">
+                {% for item in menuitemData %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}"
+                            style="height:250px; object-fit:cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="text-muted mb-1">₹ {{ item.price }}</p>
 
-                        <!-- Ratings -->
-                        <!--<p>
+                            <!-- Ratings -->
+                            <!--<p>
                             {% for i in "12345" %}
                                 {% if forloop.counter <= item.rating|floatformat:0 %}
                                     ⭐
@@ -172,27 +176,33 @@
                             <small>({{ item.rating }})</small>
                         </p>-->
 
-                        <!-- Description -->
-                        {% if item.description %}
+                            <!-- Description -->
+                            {% if item.description %}
                             <p class="card-text small">{{ item.description }}</p>
-                        {% endif %}
+                            {% endif %}
 
-                        <!-- Quantity + Add to Cart -->
-                        <div class="mt-auto">
-                            <div class="d-flex align-items-center mb-2">
-                                <input type="number" value="1" min="1" class="form-control w-25 me-2">
-                                <button class="btn btn-primary btn-sm w-100">Add to Cart</button>
+                            <!-- Quantity + Add to Cart -->
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-2">
+                                    <input type="number" value="1" min="1" class="form-control w-25 me-2">
+                                    {% if item.swiggy_link %}
+                                    <a href="{{ item.swiggy_link }}" target="_blank">
+                                        <button class="btn btn-primary btn-sm w-100">Order NOW</button>
+                                    </a>
+                                    {% else %}
+                                    <p>Not available on Swiggy</p>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                <p class="text-center w-100">No menu items available right now.</p>
+                {% endfor %}
             </div>
-            {% empty %}
-            <p class="text-center w-100">No menu items available right now.</p>
-            {% endfor %}
         </div>
     </div>
-</div>
     <!-- Menu End -->
 
 
@@ -203,7 +213,7 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-<!-- JavaScript /static/libraries -->
+    <!-- JavaScript /static/libraries -->
     <script src="/static/https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/static/https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="/static/lib/easing/easing.min.js"></script>
@@ -212,10 +222,11 @@
     <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
     <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Contact Javascript File -->
+    <!-- Contact Javascript File -->
     <script src="/static/mail/jqBootstrapValidation.min.js"></script>
     <script src="/static/mail/contact.js"></script>
-<!-- Template Javascript -->
+    <!-- Template Javascript -->
     <script src="/static/js/main.js"></script>
 </body>
+
 </html>
