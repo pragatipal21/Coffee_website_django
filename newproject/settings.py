@@ -143,7 +143,7 @@ EMAIL_HOST_PASSWORD = "yxwhvhwgwiqeuqlj"
 DEFAULT_FROM_EMAIL = "pragaticraftcorner@gmail.com" 
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ["cofeewebsite.up.railway.app"]
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
